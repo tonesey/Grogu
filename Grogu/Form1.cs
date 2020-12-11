@@ -25,18 +25,19 @@ namespace Grogu
 
         private void btCreateLayout_Click(object sender, EventArgs e)
         {
-
-            var forms = Convert.ToInt32(txtForms.Text);
+            var formsNr = Convert.ToInt32(txtForms.Text);
             //var questions = Convert.ToInt32(txtQuestions.Text);
             this.SuspendLayout();
-            for (int i = 0; i < forms; i++)
+            for (int i = 0; i < formsNr; i++)
             {
-                TabPage t = new TabPage($"Quesito {i + 1}");
-                var fc = new GroguControls.FormControl();
-                fc.Dock = DockStyle.Fill;
-                t.Controls.Add(fc);
-                tabControl.TabPages.Add(t);
-                //t.Controls.Add()
+                TabPage tabPage = new TabPage($"Scheda {i + 1}");
+                var fc = new GroguControls.FormControl()
+                {
+                    Id = (i + 1).ToString(),
+                    Dock = DockStyle.Fill
+                };
+                tabPage.Controls.Add(fc);
+                tabControl.TabPages.Add(tabPage);
             }
             this.ResumeLayout();
         }
@@ -48,7 +49,8 @@ namespace Grogu
             {
                 TabPage t = tabControl.TabPages[i];
                 FormControl fc = t.Controls[0] as FormControl;
-                if (fc != null) {
+                if (fc != null)
+                {
 
                     var res = fc.GetForm();
 

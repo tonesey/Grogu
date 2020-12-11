@@ -15,10 +15,21 @@ namespace GroguControls
     {
         public bool IsOpen { get; private set; } = false;
 
+        public string Id { get; set; }
+
         public FormControl()
         {
             InitializeComponent();
+
+
+            piA1.SizeMode = PictureBoxSizeMode.Normal;
+            piA2.SizeMode = PictureBoxSizeMode.Normal;
+            piA3.SizeMode = PictureBoxSizeMode.Normal;
+            piA4.SizeMode = PictureBoxSizeMode.Normal;
+            piA5.SizeMode = PictureBoxSizeMode.Normal;
+
         }
+
 
         private void piA1_Click(object sender, EventArgs e)
         {
@@ -61,23 +72,32 @@ namespace GroguControls
         }
 
 
-        //Bitmap default_image = new Bitmap(pictureBox5.Image);
-
-
         public QuizForm GetForm()
         {
-            QuizForm q = new QuizForm();
-            q.Question = new Question();
+            QuizForm qf = new QuizForm();
+            qf.Question = new Question();
 
-
+            //validazione
             if (piQ.Image == null)
             {
-                MessageBox.Show("Immagine domanda mancante");
+                MessageBox.Show($"Domanda mancante in scheda {Id}");
                 return null;
             }
 
-            q.Question.Content = new Bitmap(piQ.Image);
-            q.IsOpen = chOpen.Checked;
+            for (int i = 1; i <= 5; i++)
+            {
+                TextBox txt = GetControl($"txtA{i}Value") as TextBox;
+                PictureBox pi = GetControl($"piA{i}") as PictureBox;
+                double qVal;
+                if (!qf.IsOpen && (pi.Image != null) && !double.TryParse(txt.Text, out qVal))
+                {
+                    MessageBox.Show($"Inserire valore risposta {i} in scheda {Id}");
+                    return null;
+                }
+            }
+
+            qf.Question.Content = new Bitmap(piQ.Image);
+            qf.IsOpen = chOpen.Checked;
 
             for (int i = 1; i <= 5; i++)
             {
@@ -85,13 +105,12 @@ namespace GroguControls
                 TextBox txt = GetControl($"txtA{i}Value") as TextBox;
                 Answer answ = new Answer();
                 bool answerValid = false;
-                if (!q.IsOpen)
+                if (!qf.IsOpen)
                 {
                     //risposta chiusa - immagine
                     var bmp = new Bitmap(pi.Image);
                     if (bmp != null)
                     {
-
                         answ.Value = Convert.ToDouble(txt.Text);
                         answerValid = true;
                     }
@@ -99,10 +118,10 @@ namespace GroguControls
 
                 if (answerValid)
                 {
-                    q.Answers.Add(answ);
+                    qf.Answers.Add(answ);
                 }
             }
-            return q;
+            return qf;
         }
 
         private void chOpen_CheckedChanged(object sender, EventArgs e)
