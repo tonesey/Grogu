@@ -17,11 +17,25 @@ namespace GroguControls
 
         public string Id { get; set; }
 
+        QuizForm _DataSource = null;
+        public QuizForm DataSource
+        {
+            get
+            {
+                return _DataSource;
+            }
+            set
+            {
+                _DataSource = value;
+                OnDataSourceChanged(value);
+            }
+        }
+
+
+
         public FormControl()
         {
             InitializeComponent();
-
-
             piA1.SizeMode = PictureBoxSizeMode.Normal;
             piA2.SizeMode = PictureBoxSizeMode.Normal;
             piA3.SizeMode = PictureBoxSizeMode.Normal;
@@ -72,10 +86,37 @@ namespace GroguControls
         }
 
 
+        private void OnDataSourceChanged(QuizForm qf)
+        {
+            if (qf == null)
+            {
+                return;
+            }
+
+            piQ.Image = Utils.Base64ToImage(qf.Question.ImageContent);
+            for (int i = 1; i <= qf.Answers.Count; i++)
+            {
+                Answer answer = qf.Answers.ElementAt(i -1);
+                TextBox txtValue = GetControl($"txtA{i}Value") as TextBox;
+                PictureBox piAnswer = GetControl($"piA{i}") as PictureBox;
+                if (qf.IsOpen)
+                {
+                    chOpen.Checked = true;
+                }
+                else if (!string.IsNullOrEmpty(answer.ImageContent))
+                {
+                    piAnswer.Image = Utils.Base64ToImage(answer.ImageContent);
+                    txtValue.Text = answer.Value.ToString();
+                }
+            }
+        }
+
         public QuizForm GetForm()
         {
-            QuizForm qf = new QuizForm();
-            qf.Question = new Question();
+            QuizForm qf = new QuizForm
+            {
+                Question = new Question()
+            };
 
             //validazione
             if (piQ.Image == null)
@@ -127,7 +168,14 @@ namespace GroguControls
         private void chOpen_CheckedChanged(object sender, EventArgs e)
         {
             IsOpen = chOpen.Checked;
-            if (chOpen.Checked)
+            UpdateUI(chOpen.Checked);
+        }
+
+        private void UpdateUI(bool isOpen)
+        {
+            this.SuspendLayout();
+
+            if (isOpen)
             {
                 //risposte aperte
                 tableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.None;
@@ -137,12 +185,7 @@ namespace GroguControls
                 //scelta multipla
                 tableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.Inset;
             }
-            UpdateUI(chOpen.Checked);
-        }
 
-        private void UpdateUI(bool isOpen)
-        {
-            this.SuspendLayout();
             for (int i = 1; i <= 5; i++)
             {
                 PictureBox pi = GetControl($"piA{i}") as PictureBox;
@@ -150,6 +193,8 @@ namespace GroguControls
                 TextBox txt = GetControl($"txtA{i}Value") as TextBox;
                 pi.Visible = !isOpen;
                 txt.Visible = !isOpen;
+                Label l = GetControl($"labelA{i}") as Label;
+                l.Visible = !isOpen;
             }
             this.ResumeLayout();
         }

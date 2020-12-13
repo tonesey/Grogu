@@ -46,7 +46,7 @@ namespace Grogu
             // txtForms
             // 
             this.txtForms.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtForms.Location = new System.Drawing.Point(231, 628);
+            this.txtForms.Location = new System.Drawing.Point(231, 559);
             this.txtForms.Name = "txtForms";
             this.txtForms.Size = new System.Drawing.Size(35, 20);
             this.txtForms.TabIndex = 0;
@@ -56,7 +56,7 @@ namespace Grogu
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(167, 632);
+            this.label1.Location = new System.Drawing.Point(167, 563);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 1;
@@ -66,7 +66,7 @@ namespace Grogu
             // btnCreate
             // 
             this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCreate.Location = new System.Drawing.Point(15, 655);
+            this.btnCreate.Location = new System.Drawing.Point(15, 586);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(129, 24);
             this.btnCreate.TabIndex = 4;
@@ -77,7 +77,7 @@ namespace Grogu
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(1061, 685);
+            this.button1.Location = new System.Drawing.Point(981, 616);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(129, 24);
             this.button1.TabIndex = 5;
@@ -89,7 +89,7 @@ namespace Grogu
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(285, 632);
+            this.label3.Location = new System.Drawing.Point(285, 563);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 13);
             this.label3.TabIndex = 7;
@@ -98,7 +98,7 @@ namespace Grogu
             // txtTime
             // 
             this.txtTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtTime.Location = new System.Drawing.Point(400, 628);
+            this.txtTime.Location = new System.Drawing.Point(400, 559);
             this.txtTime.Name = "txtTime";
             this.txtTime.Size = new System.Drawing.Size(35, 20);
             this.txtTime.TabIndex = 6;
@@ -106,16 +106,19 @@ namespace Grogu
             // 
             // tabControl
             // 
+            this.tabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl.Location = new System.Drawing.Point(12, 12);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1181, 598);
+            this.tabControl.Size = new System.Drawing.Size(1101, 529);
             this.tabControl.TabIndex = 8;
             // 
             // btCreateLayout
             // 
             this.btCreateLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btCreateLayout.Location = new System.Drawing.Point(15, 626);
+            this.btCreateLayout.Location = new System.Drawing.Point(15, 557);
             this.btCreateLayout.Name = "btCreateLayout";
             this.btCreateLayout.Size = new System.Drawing.Size(129, 23);
             this.btCreateLayout.TabIndex = 9;
@@ -127,7 +130,7 @@ namespace Grogu
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(167, 662);
+            this.label4.Location = new System.Drawing.Point(167, 593);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 11;
@@ -136,7 +139,7 @@ namespace Grogu
             // txtFilename
             // 
             this.txtFilename.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtFilename.Location = new System.Drawing.Point(231, 658);
+            this.txtFilename.Location = new System.Drawing.Point(231, 589);
             this.txtFilename.Name = "txtFilename";
             this.txtFilename.Size = new System.Drawing.Size(204, 20);
             this.txtFilename.TabIndex = 10;
@@ -145,7 +148,7 @@ namespace Grogu
             // buttonOpen
             // 
             this.buttonOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonOpen.Location = new System.Drawing.Point(15, 685);
+            this.buttonOpen.Location = new System.Drawing.Point(15, 616);
             this.buttonOpen.Name = "buttonOpen";
             this.buttonOpen.Size = new System.Drawing.Size(129, 23);
             this.buttonOpen.TabIndex = 12;
@@ -157,7 +160,7 @@ namespace Grogu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1205, 719);
+            this.ClientSize = new System.Drawing.Size(1125, 650);
             this.Controls.Add(this.buttonOpen);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtFilename);

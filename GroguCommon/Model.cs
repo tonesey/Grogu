@@ -10,7 +10,7 @@ namespace GroguCommon
 
     public class Question {
         public string ImageContent { get; set; }
-        public double Value { get; set; }
+       //public double Value { get; set; }
     }
 
     public class Answer

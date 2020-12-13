@@ -105,14 +105,31 @@ namespace Grogu
             OpenFileDialog theDialog = new OpenFileDialog();
             theDialog.Title = "Apri verifica";
             theDialog.Filter = "GRO files|*.gro";
-            if (theDialog.ShowDialog() == DialogResult.OK)
+            if (theDialog.ShowDialog() != DialogResult.OK)
             {
-                string filename = theDialog.FileName;
+                return;
+            }
+            string filename = theDialog.FileName;
 
-                Quiz quiz = JsonConvert.DeserializeObject<Quiz>(File.ReadAllText(filename));
+            Quiz quiz = JsonConvert.DeserializeObject<Quiz>(File.ReadAllText(filename));
+            //TODO CONTINURARE
 
-                //TODO CONTINURARE
+            txtTime.Text = quiz.TimeLimit.ToString();
 
+            tabControl.TabPages.Clear();
+
+            for (int i = 0; i < quiz.Forms.Count; i++)
+            {
+                TabPage tabPage = new TabPage($"Scheda {i + 1}");
+                var fc = new GroguControls.FormControl()
+                {
+                    Id = (i + 1).ToString(),
+                    Dock = DockStyle.Fill,
+                    DataSource = quiz.Forms[i]
+
+                };
+                tabPage.Controls.Add(fc);
+                tabControl.TabPages.Add(tabPage);
             }
         }
     }
