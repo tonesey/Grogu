@@ -14,12 +14,12 @@ using System.Windows.Forms;
 
 namespace Grogu
 {
-    public partial class Form1 : Form
+    public partial class FormMain : Form
     {
 
         string _curFolder = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
 
-        public Form1()
+        public FormMain()
         {
             InitializeComponent();
         }
@@ -57,7 +57,12 @@ namespace Grogu
         private void btnCreate_Click(object sender, EventArgs e)
         {
             var forms = Convert.ToInt32(txtForms.Text);
-            Quiz q = new Quiz();
+            Quiz q = new Quiz
+            {
+                RandomForms = checkRandomForms.Checked,
+                RandomQuestions = checkRandomQuestions.Checked,
+                AllowBack = checkAllowBack.Checked
+            };
 
             int timeLimit = 0;
             if (!int.TryParse(txtTime.Text, out timeLimit))
@@ -112,10 +117,11 @@ namespace Grogu
             string filename = theDialog.FileName;
 
             Quiz quiz = JsonConvert.DeserializeObject<Quiz>(File.ReadAllText(filename));
-            //TODO CONTINURARE
 
+            checkRandomForms.Checked = quiz.RandomForms;
+            checkRandomQuestions.Checked = quiz.RandomQuestions;
+            checkAllowBack.Checked = quiz.AllowBack;
             txtTime.Text = quiz.TimeLimit.ToString();
-
             tabControl.TabPages.Clear();
 
             for (int i = 0; i < quiz.Forms.Count; i++)
@@ -123,10 +129,10 @@ namespace Grogu
                 TabPage tabPage = new TabPage($"Scheda {i + 1}");
                 var fc = new GroguControls.FormControl()
                 {
+                    IsDesign = true,
                     Id = (i + 1).ToString(),
                     Dock = DockStyle.Fill,
                     DataSource = quiz.Forms[i]
-
                 };
                 tabPage.Controls.Add(fc);
                 tabControl.TabPages.Add(tabPage);

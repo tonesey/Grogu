@@ -14,6 +14,7 @@ namespace GroguControls
     public partial class FormControl : UserControl
     {
         public bool IsOpen { get; private set; } = false;
+        public bool IsDesign { get; set; } = true;
 
         public string Id { get; set; }
 
@@ -31,8 +32,6 @@ namespace GroguControls
             }
         }
 
-
-
         public FormControl()
         {
             InitializeComponent();
@@ -41,12 +40,34 @@ namespace GroguControls
             piA3.SizeMode = PictureBoxSizeMode.Normal;
             piA4.SizeMode = PictureBoxSizeMode.Normal;
             piA5.SizeMode = PictureBoxSizeMode.Normal;
-
         }
 
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            for (int i = 1; i <= 5; i++)
+            {
+                TextBox txt = GetControl($"txtA{i}Value") as TextBox;
+                txt.Visible = IsDesign;
+                PictureBox pi = GetControl($"piA{i}") as PictureBox;
+                CheckBox chSel = GetControl($"chSel{i}") as CheckBox;
+                chSel.Visible = !IsDesign;
+            }
+
+            chOpen.Visible = IsDesign;
+
+            if (IsDesign)
+            {
+                tableLayoutPanelMain.ColumnStyles[2] = new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F);
+            }
+            else
+            {
+                tableLayoutPanelMain.ColumnStyles[2] = new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 0F);
+            }
+        }
 
         private void piA1_Click(object sender, EventArgs e)
-        {
+        {            
             PasteImage(piA1);
         }
 
@@ -77,6 +98,7 @@ namespace GroguControls
 
         private void PasteImage(PictureBox target)
         {
+            if (!IsDesign) return;
             Image cImage = Clipboard.GetImage();
 
             if (cImage != null)
@@ -94,19 +116,25 @@ namespace GroguControls
             }
 
             piQ.Image = Utils.Base64ToImage(qf.Question.ImageContent);
+
+
             for (int i = 1; i <= qf.Answers.Count; i++)
             {
-                Answer answer = qf.Answers.ElementAt(i -1);
+                Answer answer = qf.Answers.ElementAt(i - 1);
                 TextBox txtValue = GetControl($"txtA{i}Value") as TextBox;
                 PictureBox piAnswer = GetControl($"piA{i}") as PictureBox;
-                if (qf.IsOpen)
+                if (IsDesign)
                 {
-                    chOpen.Checked = true;
-                }
-                else if (!string.IsNullOrEmpty(answer.ImageContent))
-                {
-                    piAnswer.Image = Utils.Base64ToImage(answer.ImageContent);
-                    txtValue.Text = answer.Value.ToString();
+                    //design
+                    if (qf.IsOpen)
+                    {
+                        chOpen.Checked = true;
+                    }
+                    else if (!string.IsNullOrEmpty(answer.ImageContent))
+                    {
+                        piAnswer.Image = Utils.Base64ToImage(answer.ImageContent);
+                        txtValue.Text = answer.Value.ToString();
+                    }
                 }
             }
         }
@@ -178,12 +206,12 @@ namespace GroguControls
             if (isOpen)
             {
                 //risposte aperte
-                tableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.None;
+                tableLayoutPanelMain.CellBorderStyle = TableLayoutPanelCellBorderStyle.None;
             }
             else
             {
                 //scelta multipla
-                tableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.Inset;
+                tableLayoutPanelMain.CellBorderStyle = TableLayoutPanelCellBorderStyle.Inset;
             }
 
             for (int i = 1; i <= 5; i++)
@@ -210,6 +238,11 @@ namespace GroguControls
 
             var ctrls = GetAll(this);
             return ctrls.FirstOrDefault(c => c.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
+
+        }
+
+        private void labelA1_Click(object sender, EventArgs e)
+        {
 
         }
 

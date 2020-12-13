@@ -24,6 +24,9 @@ namespace GroguCommon
     {
         public List<QuizForm> Forms { get; set; } = new List<QuizForm>();
         public int TimeLimit { get; set; }
+        public bool RandomForms { get; set; }
+        public bool RandomQuestions { get; set; }
+        public bool AllowBack { get; set; }
     }
 
     public class QuizForm {
