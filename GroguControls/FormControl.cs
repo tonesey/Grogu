@@ -96,7 +96,7 @@ namespace GroguControls
                 }
             }
 
-            qf.Question.Content = new Bitmap(piQ.Image);
+            qf.Question.ImageContent = Utils.ImageToBase64(piQ.Image);
             qf.IsOpen = chOpen.Checked;
 
             for (int i = 1; i <= 5; i++)
@@ -108,9 +108,9 @@ namespace GroguControls
                 if (!qf.IsOpen)
                 {
                     //risposta chiusa - immagine
-                    var bmp = new Bitmap(pi.Image);
-                    if (bmp != null)
+                    if (pi.Image != null)
                     {
+                        answ.ImageContent = Utils.ImageToBase64(pi.Image);
                         answ.Value = Convert.ToDouble(txt.Text);
                         answerValid = true;
                     }

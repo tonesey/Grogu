@@ -9,22 +9,27 @@ namespace GroguCommon
 {
 
     public class Question {
-        public Image Content { get; set; }
+        public string ImageContent { get; set; }
         public double Value { get; set; }
     }
 
     public class Answer
     {
-        public Image Content { get; set; }
+        public string ImageContent { get; set; }
         public double Value { get; set; }
         public bool IsOpen { get; set; }
     }
 
+    public class Quiz
+    {
+        public List<QuizForm> Forms { get; set; } = new List<QuizForm>();
+        public int TimeLimit { get; set; }
+    }
 
     public class QuizForm {
 
         public Question Question { get; set; }
-        public List<Answer> Answers { get; set; }
+        public List<Answer> Answers { get; set; } = new List<Answer>();
         public bool IsOpen { get; set; }
     }
 
