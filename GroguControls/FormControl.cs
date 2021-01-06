@@ -41,6 +41,7 @@ namespace GroguControls
             piA3.SizeMode = PictureBoxSizeMode.Normal;
             piA4.SizeMode = PictureBoxSizeMode.Normal;
             piA5.SizeMode = PictureBoxSizeMode.Normal;
+            txtOpenResp.Visible = false;
         }
 
         protected override void OnLoad(EventArgs e)
@@ -112,7 +113,6 @@ namespace GroguControls
         bool _isDsChange = false;
         private void OnDataSourceChanged(QuizForm qf)
         {
-
             if (qf == null)
             {
                 return;
@@ -235,6 +235,8 @@ namespace GroguControls
             }
 
             chOpen.Visible = IsDesign;
+
+            txtOpenResp.Visible = !IsDesign && isOpen;
 
             this.ResumeLayout();
         }

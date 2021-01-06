@@ -51,14 +51,16 @@ namespace GroguControls
             this.txtA3Value = new System.Windows.Forms.TextBox();
             this.txtA4Value = new System.Windows.Forms.TextBox();
             this.txtA5Value = new System.Windows.Forms.TextBox();
-            this.panelQ = new System.Windows.Forms.Panel();
-            this.piQ = new System.Windows.Forms.PictureBox();
             this.chOpen = new System.Windows.Forms.CheckBox();
             this.piA1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.chSel2 = new System.Windows.Forms.CheckBox();
             this.labelA2 = new System.Windows.Forms.Label();
+            this.tableLayoutPanelReq = new System.Windows.Forms.TableLayoutPanel();
+            this.piQ = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtOpenResp = new System.Windows.Forms.TextBox();
             this.tableLayoutPanelMain.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -68,10 +70,11 @@ namespace GroguControls
             ((System.ComponentModel.ISupportInitialize)(this.piA4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.piA3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.piA2)).BeginInit();
-            this.panelQ.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.piQ)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.piA1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanelReq.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.piQ)).BeginInit();
+            this.tableLayoutPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanelMain
@@ -94,11 +97,10 @@ namespace GroguControls
             this.tableLayoutPanelMain.Controls.Add(this.txtA3Value, 2, 3);
             this.tableLayoutPanelMain.Controls.Add(this.txtA4Value, 2, 4);
             this.tableLayoutPanelMain.Controls.Add(this.txtA5Value, 2, 5);
-            this.tableLayoutPanelMain.Controls.Add(this.panelQ, 1, 0);
-            this.tableLayoutPanelMain.Controls.Add(this.chOpen, 2, 0);
             this.tableLayoutPanelMain.Controls.Add(this.piA1, 1, 1);
-            this.tableLayoutPanelMain.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanelMain.Controls.Add(this.tableLayoutPanel2, 0, 2);
+            this.tableLayoutPanelMain.Controls.Add(this.tableLayoutPanelReq, 1, 0);
+            this.tableLayoutPanelMain.Controls.Add(this.tableLayoutPanel7, 0, 0);
             this.tableLayoutPanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelMain.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanelMain.Name = "tableLayoutPanelMain";
@@ -109,7 +111,7 @@ namespace GroguControls
             this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanelMain.Size = new System.Drawing.Size(950, 715);
+            this.tableLayoutPanelMain.Size = new System.Drawing.Size(1072, 750);
             this.tableLayoutPanelMain.TabIndex = 0;
             // 
             // tableLayoutPanel6
@@ -119,7 +121,7 @@ namespace GroguControls
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.04878F));
             this.tableLayoutPanel6.Controls.Add(this.chSel5, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.labelA5, 0, 0);
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(6, 627);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(6, 655);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -154,7 +156,7 @@ namespace GroguControls
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.04878F));
             this.tableLayoutPanel5.Controls.Add(this.chSel4, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.labelA4, 0, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(6, 536);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(6, 557);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -189,7 +191,7 @@ namespace GroguControls
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.04878F));
             this.tableLayoutPanel4.Controls.Add(this.chSel3, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.labelA3, 0, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(6, 445);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(6, 459);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -255,9 +257,9 @@ namespace GroguControls
             // piA5
             // 
             this.piA5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.piA5.Location = new System.Drawing.Point(97, 627);
+            this.piA5.Location = new System.Drawing.Point(97, 655);
             this.piA5.Name = "piA5";
-            this.piA5.Size = new System.Drawing.Size(721, 82);
+            this.piA5.Size = new System.Drawing.Size(843, 89);
             this.piA5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.piA5.TabIndex = 11;
             this.piA5.TabStop = false;
@@ -266,9 +268,9 @@ namespace GroguControls
             // piA4
             // 
             this.piA4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.piA4.Location = new System.Drawing.Point(97, 536);
+            this.piA4.Location = new System.Drawing.Point(97, 557);
             this.piA4.Name = "piA4";
-            this.piA4.Size = new System.Drawing.Size(721, 82);
+            this.piA4.Size = new System.Drawing.Size(843, 89);
             this.piA4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.piA4.TabIndex = 10;
             this.piA4.TabStop = false;
@@ -277,9 +279,9 @@ namespace GroguControls
             // piA3
             // 
             this.piA3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.piA3.Location = new System.Drawing.Point(97, 445);
+            this.piA3.Location = new System.Drawing.Point(97, 459);
             this.piA3.Name = "piA3";
-            this.piA3.Size = new System.Drawing.Size(721, 82);
+            this.piA3.Size = new System.Drawing.Size(843, 89);
             this.piA3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.piA3.TabIndex = 9;
             this.piA3.TabStop = false;
@@ -288,9 +290,9 @@ namespace GroguControls
             // piA2
             // 
             this.piA2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.piA2.Location = new System.Drawing.Point(97, 354);
+            this.piA2.Location = new System.Drawing.Point(97, 361);
             this.piA2.Name = "piA2";
-            this.piA2.Size = new System.Drawing.Size(721, 82);
+            this.piA2.Size = new System.Drawing.Size(843, 89);
             this.piA2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.piA2.TabIndex = 8;
             this.piA2.TabStop = false;
@@ -299,7 +301,7 @@ namespace GroguControls
             // txtA1Value
             // 
             this.txtA1Value.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtA1Value.Location = new System.Drawing.Point(827, 294);
+            this.txtA1Value.Location = new System.Drawing.Point(949, 297);
             this.txtA1Value.Name = "txtA1Value";
             this.txtA1Value.Size = new System.Drawing.Size(43, 20);
             this.txtA1Value.TabIndex = 1;
@@ -308,7 +310,7 @@ namespace GroguControls
             // txtA2Value
             // 
             this.txtA2Value.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtA2Value.Location = new System.Drawing.Point(827, 385);
+            this.txtA2Value.Location = new System.Drawing.Point(949, 395);
             this.txtA2Value.Name = "txtA2Value";
             this.txtA2Value.Size = new System.Drawing.Size(43, 20);
             this.txtA2Value.TabIndex = 2;
@@ -317,7 +319,7 @@ namespace GroguControls
             // txtA3Value
             // 
             this.txtA3Value.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtA3Value.Location = new System.Drawing.Point(827, 476);
+            this.txtA3Value.Location = new System.Drawing.Point(949, 493);
             this.txtA3Value.Name = "txtA3Value";
             this.txtA3Value.Size = new System.Drawing.Size(43, 20);
             this.txtA3Value.TabIndex = 3;
@@ -326,7 +328,7 @@ namespace GroguControls
             // txtA4Value
             // 
             this.txtA4Value.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtA4Value.Location = new System.Drawing.Point(827, 567);
+            this.txtA4Value.Location = new System.Drawing.Point(949, 591);
             this.txtA4Value.Name = "txtA4Value";
             this.txtA4Value.Size = new System.Drawing.Size(43, 20);
             this.txtA4Value.TabIndex = 4;
@@ -335,40 +337,17 @@ namespace GroguControls
             // txtA5Value
             // 
             this.txtA5Value.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtA5Value.Location = new System.Drawing.Point(827, 658);
+            this.txtA5Value.Location = new System.Drawing.Point(949, 689);
             this.txtA5Value.Name = "txtA5Value";
             this.txtA5Value.Size = new System.Drawing.Size(43, 20);
             this.txtA5Value.TabIndex = 5;
             this.txtA5Value.Tag = "5";
             // 
-            // panelQ
-            // 
-            this.panelQ.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelQ.Controls.Add(this.piQ);
-            this.panelQ.Location = new System.Drawing.Point(97, 6);
-            this.panelQ.Name = "panelQ";
-            this.panelQ.Size = new System.Drawing.Size(721, 248);
-            this.panelQ.TabIndex = 13;
-            // 
-            // piQ
-            // 
-            this.piQ.BackColor = System.Drawing.Color.Transparent;
-            this.piQ.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.piQ.Location = new System.Drawing.Point(0, 0);
-            this.piQ.Name = "piQ";
-            this.piQ.Size = new System.Drawing.Size(721, 248);
-            this.piQ.TabIndex = 1;
-            this.piQ.TabStop = false;
-            this.piQ.DoubleClick += new System.EventHandler(this.piQ_Click);
-            // 
             // chOpen
             // 
-            this.chOpen.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.chOpen.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.chOpen.AutoSize = true;
-            this.chOpen.Location = new System.Drawing.Point(827, 140);
-            this.chOpen.Margin = new System.Windows.Forms.Padding(3, 40, 3, 3);
+            this.chOpen.Location = new System.Drawing.Point(5, 177);
             this.chOpen.Name = "chOpen";
             this.chOpen.Size = new System.Drawing.Size(72, 17);
             this.chOpen.TabIndex = 12;
@@ -382,22 +361,11 @@ namespace GroguControls
             this.piA1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.piA1.Location = new System.Drawing.Point(97, 263);
             this.piA1.Name = "piA1";
-            this.piA1.Size = new System.Drawing.Size(721, 82);
+            this.piA1.Size = new System.Drawing.Size(843, 89);
             this.piA1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.piA1.TabIndex = 15;
             this.piA1.TabStop = false;
             this.piA1.DoubleClick += new System.EventHandler(this.piA1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 23);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 13);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "domanda";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel2
             // 
@@ -406,7 +374,7 @@ namespace GroguControls
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.04878F));
             this.tableLayoutPanel2.Controls.Add(this.chSel2, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.labelA2, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 354);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 361);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -434,6 +402,70 @@ namespace GroguControls
             this.labelA2.Text = "risposta 2";
             this.labelA2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // tableLayoutPanelReq
+            // 
+            this.tableLayoutPanelReq.ColumnCount = 1;
+            this.tableLayoutPanelReq.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelReq.Controls.Add(this.piQ, 0, 0);
+            this.tableLayoutPanelReq.Controls.Add(this.txtOpenResp, 0, 1);
+            this.tableLayoutPanelReq.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelReq.Location = new System.Drawing.Point(97, 6);
+            this.tableLayoutPanelReq.Name = "tableLayoutPanelReq";
+            this.tableLayoutPanelReq.RowCount = 2;
+            this.tableLayoutPanelReq.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.59678F));
+            this.tableLayoutPanelReq.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.40322F));
+            this.tableLayoutPanelReq.Size = new System.Drawing.Size(843, 248);
+            this.tableLayoutPanelReq.TabIndex = 27;
+            // 
+            // piQ
+            // 
+            this.piQ.BackColor = System.Drawing.SystemColors.Control;
+            this.piQ.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.piQ.Location = new System.Drawing.Point(3, 3);
+            this.piQ.Name = "piQ";
+            this.piQ.Size = new System.Drawing.Size(837, 117);
+            this.piQ.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.piQ.TabIndex = 6;
+            this.piQ.TabStop = false;
+            this.piQ.DoubleClick += new System.EventHandler(this.piQ_Click);
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 1;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.chOpen, 0, 1);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(6, 6);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 2;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(82, 248);
+            this.tableLayoutPanel7.TabIndex = 28;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(3, 3);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 121);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "domanda";
+            // 
+            // txtOpenResp
+            // 
+            this.txtOpenResp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtOpenResp.Location = new System.Drawing.Point(3, 126);
+            this.txtOpenResp.Multiline = true;
+            this.txtOpenResp.Name = "txtOpenResp";
+            this.txtOpenResp.Size = new System.Drawing.Size(837, 119);
+            this.txtOpenResp.TabIndex = 7;
+            this.txtOpenResp.Text = "Testo risposta";
+            // 
             // FormControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -441,7 +473,7 @@ namespace GroguControls
             this.AutoSize = true;
             this.Controls.Add(this.tableLayoutPanelMain);
             this.Name = "FormControl";
-            this.Size = new System.Drawing.Size(950, 715);
+            this.Size = new System.Drawing.Size(1072, 750);
             this.tableLayoutPanelMain.ResumeLayout(false);
             this.tableLayoutPanelMain.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -456,11 +488,14 @@ namespace GroguControls
             ((System.ComponentModel.ISupportInitialize)(this.piA4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.piA3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.piA2)).EndInit();
-            this.panelQ.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.piQ)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.piA1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanelReq.ResumeLayout(false);
+            this.tableLayoutPanelReq.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.piQ)).EndInit();
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -478,10 +513,7 @@ namespace GroguControls
         private System.Windows.Forms.PictureBox piA3;
         private System.Windows.Forms.PictureBox piA2;
         private System.Windows.Forms.CheckBox chOpen;
-        private System.Windows.Forms.Panel panelQ;
-        private System.Windows.Forms.PictureBox piQ;
         private System.Windows.Forms.PictureBox piA1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.CheckBox chSel5;
         private System.Windows.Forms.Label labelA5;
@@ -497,5 +529,10 @@ namespace GroguControls
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.CheckBox chSel2;
         private System.Windows.Forms.Label labelA2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelReq;
+        private System.Windows.Forms.PictureBox piQ;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtOpenResp;
     }
 }
