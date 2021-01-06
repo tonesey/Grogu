@@ -29,6 +29,7 @@ namespace GroguRuntime
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormExecutor));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.btnBack = new System.Windows.Forms.Button();
@@ -36,6 +37,7 @@ namespace GroguRuntime
             this.labelTitle = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // tabControl
@@ -84,9 +86,9 @@ namespace GroguRuntime
             // btnSubmit
             // 
             this.btnSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSubmit.Location = new System.Drawing.Point(744, 591);
+            this.btnSubmit.Location = new System.Drawing.Point(765, 591);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(291, 23);
+            this.btnSubmit.Size = new System.Drawing.Size(270, 23);
             this.btnSubmit.TabIndex = 13;
             this.btnSubmit.Text = "CONSEGNA";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -96,11 +98,16 @@ namespace GroguRuntime
             // 
             this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar1.Location = new System.Drawing.Point(209, 591);
+            this.progressBar1.Location = new System.Drawing.Point(192, 591);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(497, 23);
+            this.progressBar1.Size = new System.Drawing.Size(556, 23);
             this.progressBar1.TabIndex = 14;
             this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FormExecutor
             // 
@@ -129,6 +136,7 @@ namespace GroguRuntime
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

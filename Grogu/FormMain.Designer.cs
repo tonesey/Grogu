@@ -41,17 +41,19 @@ namespace Grogu
             this.buttonOpen = new System.Windows.Forms.Button();
             this.checkRandomForms = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkAllowBack = new System.Windows.Forms.CheckBox();
+            this.checkRandomQuestions = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTime = new System.Windows.Forms.TextBox();
-            this.checkRandomQuestions = new System.Windows.Forms.CheckBox();
-            this.checkAllowBack = new System.Windows.Forms.CheckBox();
+            this.dtStart = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtForms
             // 
             this.txtForms.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtForms.Location = new System.Drawing.Point(233, 538);
+            this.txtForms.Location = new System.Drawing.Point(233, 519);
             this.txtForms.Name = "txtForms";
             this.txtForms.Size = new System.Drawing.Size(35, 20);
             this.txtForms.TabIndex = 0;
@@ -61,7 +63,7 @@ namespace Grogu
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(169, 542);
+            this.label1.Location = new System.Drawing.Point(169, 523);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 1;
@@ -71,7 +73,7 @@ namespace Grogu
             // btnCreate
             // 
             this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCreate.Location = new System.Drawing.Point(17, 566);
+            this.btnCreate.Location = new System.Drawing.Point(17, 547);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(129, 24);
             this.btnCreate.TabIndex = 4;
@@ -81,8 +83,8 @@ namespace Grogu
             // 
             // button1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(17, 624);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.Location = new System.Drawing.Point(17, 605);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(129, 24);
             this.button1.TabIndex = 5;
@@ -98,13 +100,13 @@ namespace Grogu
             this.tabControl.Location = new System.Drawing.Point(12, 12);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1101, 501);
+            this.tabControl.Size = new System.Drawing.Size(1133, 482);
             this.tabControl.TabIndex = 8;
             // 
             // btCreateLayout
             // 
             this.btCreateLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btCreateLayout.Location = new System.Drawing.Point(17, 537);
+            this.btCreateLayout.Location = new System.Drawing.Point(17, 518);
             this.btCreateLayout.Name = "btCreateLayout";
             this.btCreateLayout.Size = new System.Drawing.Size(129, 23);
             this.btCreateLayout.TabIndex = 9;
@@ -116,7 +118,7 @@ namespace Grogu
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(169, 572);
+            this.label4.Location = new System.Drawing.Point(169, 553);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 11;
@@ -125,7 +127,7 @@ namespace Grogu
             // txtFilename
             // 
             this.txtFilename.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtFilename.Location = new System.Drawing.Point(233, 568);
+            this.txtFilename.Location = new System.Drawing.Point(233, 549);
             this.txtFilename.Name = "txtFilename";
             this.txtFilename.Size = new System.Drawing.Size(162, 20);
             this.txtFilename.TabIndex = 10;
@@ -134,7 +136,7 @@ namespace Grogu
             // buttonOpen
             // 
             this.buttonOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonOpen.Location = new System.Drawing.Point(17, 595);
+            this.buttonOpen.Location = new System.Drawing.Point(17, 576);
             this.buttonOpen.Name = "buttonOpen";
             this.buttonOpen.Size = new System.Drawing.Size(129, 23);
             this.buttonOpen.TabIndex = 12;
@@ -145,7 +147,7 @@ namespace Grogu
             // checkRandomForms
             // 
             this.checkRandomForms.AutoSize = true;
-            this.checkRandomForms.Location = new System.Drawing.Point(10, 73);
+            this.checkRandomForms.Location = new System.Drawing.Point(10, 71);
             this.checkRandomForms.Name = "checkRandomForms";
             this.checkRandomForms.Size = new System.Drawing.Size(146, 17);
             this.checkRandomForms.TabIndex = 13;
@@ -154,17 +156,40 @@ namespace Grogu
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.dtStart);
             this.groupBox1.Controls.Add(this.checkAllowBack);
             this.groupBox1.Controls.Add(this.checkRandomQuestions);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtTime);
             this.groupBox1.Controls.Add(this.checkRandomForms);
-            this.groupBox1.Location = new System.Drawing.Point(416, 537);
+            this.groupBox1.Location = new System.Drawing.Point(453, 519);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(370, 111);
+            this.groupBox1.Size = new System.Drawing.Size(598, 111);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Opzioni esecuzione verifica";
+            // 
+            // checkAllowBack
+            // 
+            this.checkAllowBack.AutoSize = true;
+            this.checkAllowBack.Location = new System.Drawing.Point(10, 50);
+            this.checkAllowBack.Name = "checkAllowBack";
+            this.checkAllowBack.Size = new System.Drawing.Size(182, 17);
+            this.checkAllowBack.TabIndex = 17;
+            this.checkAllowBack.Text = "Consenti ritorno a domanda prec.";
+            this.checkAllowBack.UseVisualStyleBackColor = true;
+            // 
+            // checkRandomQuestions
+            // 
+            this.checkRandomQuestions.AutoSize = true;
+            this.checkRandomQuestions.Location = new System.Drawing.Point(10, 92);
+            this.checkRandomQuestions.Name = "checkRandomQuestions";
+            this.checkRandomQuestions.Size = new System.Drawing.Size(193, 17);
+            this.checkRandomQuestions.TabIndex = 16;
+            this.checkRandomQuestions.Text = "Domande scheda in ordine casuale";
+            this.checkRandomQuestions.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -179,37 +204,36 @@ namespace Grogu
             // txtTime
             // 
             this.txtTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtTime.Location = new System.Drawing.Point(121, 25);
+            this.txtTime.Location = new System.Drawing.Point(121, 24);
             this.txtTime.Name = "txtTime";
             this.txtTime.Size = new System.Drawing.Size(35, 20);
             this.txtTime.TabIndex = 14;
             this.txtTime.Text = "30";
             // 
-            // checkRandomQuestions
+            // dtStart
             // 
-            this.checkRandomQuestions.AutoSize = true;
-            this.checkRandomQuestions.Location = new System.Drawing.Point(197, 50);
-            this.checkRandomQuestions.Name = "checkRandomQuestions";
-            this.checkRandomQuestions.Size = new System.Drawing.Size(155, 17);
-            this.checkRandomQuestions.TabIndex = 16;
-            this.checkRandomQuestions.Text = "Domande in ordine casuale";
-            this.checkRandomQuestions.UseVisualStyleBackColor = true;
+            this.dtStart.CustomFormat = "dd/MM/yyyy hh:mm";
+            this.dtStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtStart.Location = new System.Drawing.Point(282, 24);
+            this.dtStart.Name = "dtStart";
+            this.dtStart.Size = new System.Drawing.Size(131, 20);
+            this.dtStart.TabIndex = 18;
             // 
-            // checkAllowBack
+            // label2
             // 
-            this.checkAllowBack.AutoSize = true;
-            this.checkAllowBack.Location = new System.Drawing.Point(9, 50);
-            this.checkAllowBack.Name = "checkAllowBack";
-            this.checkAllowBack.Size = new System.Drawing.Size(182, 17);
-            this.checkAllowBack.TabIndex = 17;
-            this.checkAllowBack.Text = "Consenti ritorno a domanda prec.";
-            this.checkAllowBack.UseVisualStyleBackColor = true;
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(194, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 13);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Inizio verifica";
             // 
-            // Form1
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1125, 659);
+            this.ClientSize = new System.Drawing.Size(1157, 640);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonOpen);
             this.Controls.Add(this.label4);
@@ -221,7 +245,7 @@ namespace Grogu
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtForms);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "FormMain";
             this.Text = "Grogu Quiz Generator";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -247,6 +271,8 @@ namespace Grogu
         private System.Windows.Forms.CheckBox checkRandomQuestions;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTime;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dtStart;
     }
 }
 

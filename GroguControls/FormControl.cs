@@ -15,7 +15,6 @@ namespace GroguControls
     {
         public bool IsOpen { get; private set; } = false;
         public bool IsDesign { get; set; } = true;
-
         public string Id { get; set; }
 
         QuizForm _DataSource = null;
@@ -28,7 +27,9 @@ namespace GroguControls
             set
             {
                 _DataSource = value;
+                _isDsChange = true;
                 OnDataSourceChanged(value);
+                _isDsChange = false;
             }
         }
 
@@ -45,29 +46,30 @@ namespace GroguControls
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            for (int i = 1; i <= 5; i++)
-            {
-                TextBox txt = GetControl($"txtA{i}Value") as TextBox;
-                txt.Visible = IsDesign;
-                PictureBox pi = GetControl($"piA{i}") as PictureBox;
-                CheckBox chSel = GetControl($"chSel{i}") as CheckBox;
-                chSel.Visible = !IsDesign;
-            }
 
-            chOpen.Visible = IsDesign;
+            //for (int i = 1; i <= 5; i++)
+            //{
+            //    TextBox txt = GetControl($"txtA{i}Value") as TextBox;
+            //    txt.Visible = IsDesign;
+            //    PictureBox pi = GetControl($"piA{i}") as PictureBox;
+            //    CheckBox chSel = GetControl($"chSel{i}") as CheckBox;
+            //    chSel.Visible = !IsDesign;
+            //}
 
-            if (IsDesign)
-            {
-                tableLayoutPanelMain.ColumnStyles[2] = new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F);
-            }
-            else
-            {
-                tableLayoutPanelMain.ColumnStyles[2] = new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 0F);
-            }
+            //chOpen.Visible = IsDesign;
+
+            //if (IsDesign)
+            //{
+            //    tableLayoutPanelMain.ColumnStyles[2] = new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F);
+            //}
+            //else
+            //{
+            //    tableLayoutPanelMain.ColumnStyles[2] = new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 0F);
+            //}
         }
 
         private void piA1_Click(object sender, EventArgs e)
-        {            
+        {
             PasteImage(piA1);
         }
 
@@ -107,9 +109,10 @@ namespace GroguControls
             }
         }
 
-
+        bool _isDsChange = false;
         private void OnDataSourceChanged(QuizForm qf)
         {
+
             if (qf == null)
             {
                 return;
@@ -117,26 +120,28 @@ namespace GroguControls
 
             piQ.Image = Utils.Base64ToImage(qf.Question.ImageContent);
 
+            if (IsDesign && qf.IsOpen)
+            {
+                chOpen.Checked = true;
+            }
 
             for (int i = 1; i <= qf.Answers.Count; i++)
             {
                 Answer answer = qf.Answers.ElementAt(i - 1);
                 TextBox txtValue = GetControl($"txtA{i}Value") as TextBox;
                 PictureBox piAnswer = GetControl($"piA{i}") as PictureBox;
+
+                if (!string.IsNullOrEmpty(answer.ImageContent))
+                {
+                    piAnswer.Image = Utils.Base64ToImage(answer.ImageContent);
+                }
                 if (IsDesign)
                 {
-                    //design
-                    if (qf.IsOpen)
-                    {
-                        chOpen.Checked = true;
-                    }
-                    else if (!string.IsNullOrEmpty(answer.ImageContent))
-                    {
-                        piAnswer.Image = Utils.Base64ToImage(answer.ImageContent);
-                        txtValue.Text = answer.Value.ToString();
-                    }
+                    txtValue.Text = answer.Value.ToString();
                 }
             }
+
+            UpdateUI(qf.IsOpen);
         }
 
         public QuizForm GetForm()
@@ -195,8 +200,10 @@ namespace GroguControls
 
         private void chOpen_CheckedChanged(object sender, EventArgs e)
         {
+            if (_isDsChange) return;
+
             IsOpen = chOpen.Checked;
-            UpdateUI(chOpen.Checked);
+            UpdateUI(IsOpen);
         }
 
         private void UpdateUI(bool isOpen)
@@ -220,10 +227,15 @@ namespace GroguControls
                 pi.SizeMode = PictureBoxSizeMode.Normal;
                 TextBox txt = GetControl($"txtA{i}Value") as TextBox;
                 pi.Visible = !isOpen;
-                txt.Visible = !isOpen;
+                txt.Visible = !isOpen && IsDesign;
                 Label l = GetControl($"labelA{i}") as Label;
                 l.Visible = !isOpen;
+                CheckBox chSel = GetControl($"chSel{i}") as CheckBox;
+                chSel.Visible = !isOpen && !IsDesign;
             }
+
+            chOpen.Visible = IsDesign;
+
             this.ResumeLayout();
         }
 

@@ -61,7 +61,8 @@ namespace Grogu
             {
                 RandomForms = checkRandomForms.Checked,
                 RandomQuestions = checkRandomQuestions.Checked,
-                AllowBack = checkAllowBack.Checked
+                AllowBack = checkAllowBack.Checked,
+                StartDateTime = dtStart.Value
             };
 
             int timeLimit = 0;
@@ -118,13 +119,14 @@ namespace Grogu
 
             Quiz quiz = JsonConvert.DeserializeObject<Quiz>(File.ReadAllText(filename));
 
+            dtStart.Value = quiz.StartDateTime;
             checkRandomForms.Checked = quiz.RandomForms;
             checkRandomQuestions.Checked = quiz.RandomQuestions;
             checkAllowBack.Checked = quiz.AllowBack;
             txtTime.Text = quiz.TimeLimit.ToString();
             tabControl.TabPages.Clear();
 
-            for (int i = 0; i < quiz.Forms.Count; i++)
+            for (int i = 0; i < 5; i++)
             {
                 TabPage tabPage = new TabPage($"Scheda {i + 1}");
                 var fc = new GroguControls.FormControl()
