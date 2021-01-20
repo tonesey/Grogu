@@ -1,0 +1,12 @@
+
+TODO
+
+- login studente
+- invio 
+
+WIP
+- salvataggio stato verifica a runtime con resume in caso di crash
+
+DONE
+
+

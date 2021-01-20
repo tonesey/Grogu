@@ -40,5 +40,17 @@ namespace GroguCommon
     }
 
 
+    //stato della verifica a runtime
+    //deve essere sempre salvato per riprendere in caso di crash
+    public class QuizAnswers
+    {
+        public List<QuizAnswer> SavedAnswers { get; set; } = new List<QuizAnswer>();
+    }
+
+    public class QuizAnswer
+    {
+        public string QuestionImageContent { get; set; }
+        public string AnswerImageContent { get; set; }
+    }
 
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace GroguControls
 {
     public partial class FormControl : UserControl
     {
-        public bool IsOpen { get; private set; } = false;
+        //public bool IsOpen { get; private set; } = false;
         public bool IsDesign { get; set; } = true;
         public string Id { get; set; }
 
@@ -198,12 +199,46 @@ namespace GroguControls
             return qf;
         }
 
+        public Image GetQuestion()
+        {
+            return piQ.Image;
+        }
+
+        public Image GetAnswer()
+        {
+            Image retVal = null;
+            if (DataSource.IsOpen)
+            {
+                //se aperta ricavare immagine da textbox
+                retVal = Utils.DrawText(txtOpenResp.Text);
+                retVal.Save($@"c:\temp\res_open_{Id}.png", ImageFormat.Png);
+            }
+            else
+            {
+                List<Bitmap> multiRes = new List<Bitmap>();
+                //se a risposte multiple restituire immagine corrispondente al check attuale
+                for (int i = 1; i <= 5; i++)
+                {
+                    CheckBox chSel = GetControl($"chSel{i}") as CheckBox;
+                    if (chSel.Checked)
+                    {
+                        //risposta selezionata
+                        PictureBox pi = GetControl($"piA{i}") as PictureBox;
+                        multiRes.Add((Bitmap)pi.Image);
+                    }
+                }
+                retVal = Utils.MergeImages(multiRes);
+                retVal.Save($@"c:\temp\res_multi_{Id}.png", ImageFormat.Png);
+            }
+            return retVal;
+        }
+
         private void chOpen_CheckedChanged(object sender, EventArgs e)
         {
             if (_isDsChange) return;
 
-            IsOpen = chOpen.Checked;
-            UpdateUI(IsOpen);
+            //IsOpen = chOpen.Checked;
+            UpdateUI(chOpen.Checked);
         }
 
         private void UpdateUI(bool isOpen)

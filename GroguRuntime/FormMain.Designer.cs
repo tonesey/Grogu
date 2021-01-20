@@ -48,13 +48,13 @@ namespace GroguRuntime
             this.tabControl.Location = new System.Drawing.Point(12, 41);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1023, 533);
+            this.tabControl.Size = new System.Drawing.Size(1084, 535);
             this.tabControl.TabIndex = 9;
             // 
             // btnBack
             // 
             this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnBack.Location = new System.Drawing.Point(13, 591);
+            this.btnBack.Location = new System.Drawing.Point(13, 593);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
             this.btnBack.TabIndex = 10;
@@ -65,7 +65,7 @@ namespace GroguRuntime
             // btnAhead
             // 
             this.btnAhead.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAhead.Location = new System.Drawing.Point(94, 591);
+            this.btnAhead.Location = new System.Drawing.Point(94, 593);
             this.btnAhead.Name = "btnAhead";
             this.btnAhead.Size = new System.Drawing.Size(75, 23);
             this.btnAhead.TabIndex = 11;
@@ -86,7 +86,7 @@ namespace GroguRuntime
             // btnSubmit
             // 
             this.btnSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSubmit.Location = new System.Drawing.Point(765, 591);
+            this.btnSubmit.Location = new System.Drawing.Point(826, 593);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(270, 23);
             this.btnSubmit.TabIndex = 13;
@@ -98,11 +98,10 @@ namespace GroguRuntime
             // 
             this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar1.Location = new System.Drawing.Point(192, 591);
+            this.progressBar1.Location = new System.Drawing.Point(192, 593);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(556, 23);
+            this.progressBar1.Size = new System.Drawing.Size(617, 23);
             this.progressBar1.TabIndex = 14;
-            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
             // timer1
             // 
@@ -113,7 +112,7 @@ namespace GroguRuntime
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1047, 629);
+            this.ClientSize = new System.Drawing.Size(1108, 631);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.labelTitle);
